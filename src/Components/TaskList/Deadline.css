@@ -1,0 +1,6 @@
+.deadline{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    color: rgb(248, 247, 247);
+}

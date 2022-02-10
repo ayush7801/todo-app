@@ -1,0 +1,13 @@
+.tasklist{
+    width: 45%;
+    border: 0px solid #000;
+    border-radius: 20px;
+    background-color: #fff;
+    padding: 20px 10px;
+    min-height: 70vh;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}

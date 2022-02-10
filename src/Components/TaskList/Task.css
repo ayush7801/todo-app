@@ -1,0 +1,41 @@
+.task{
+    background-color: rgb(112, 110, 110);
+    color: #fff;
+    position: relative;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: 0 0 5px rgb(160, 158, 158);
+    border-radius: 20px;
+    width: 20rem;
+    height: 7rem;
+}
+.deadline{
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    font-size: 0.8rem;
+}
+.checkbox{
+    position: absolute;
+    top: 45%;
+    left: 5%;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+}
+.tags{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.tag{
+    position: absolute;
+    top: 67%;
+    left: 70%;
+}
