@@ -6,10 +6,13 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    flex-wrap: wrap;
     box-shadow: 0 0 5px rgb(160, 158, 158);
     border-radius: 20px;
-    width: 20rem;
+    width: 93%;
     height: 7rem;
+    margin-bottom: .3rem;
+    box-shadow: 0 0 10px rgb(184, 181, 181);
 }
 .deadline{
     position: absolute;
@@ -21,6 +24,7 @@
     position: absolute;
     top: 45%;
     left: 5%;
+    cursor: pointer;
 }
 .title{
     display: flex;

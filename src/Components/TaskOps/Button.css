@@ -1,5 +1,7 @@
 .button{
+    margin: 1rem 0 0 0;
     background-color: #ffca28;
+    width: 35%;
     color: #fff;
     padding: 10px 15px;
     display: flex;

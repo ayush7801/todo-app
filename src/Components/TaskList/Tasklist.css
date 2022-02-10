@@ -1,13 +1,16 @@
 .tasklist{
     width: 45%;
-    border: 0px solid #000;
     border-radius: 20px;
     background-color: #fff;
-    padding: 20px 10px;
-    min-height: 70vh;
+    padding: 20px 0 20px 0;
+    height: 82vh;
     scroll-behavior: smooth;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: 0 1rem 0 0;
+    overflow-x: hidden;
+    overflow-y: auto;
 }

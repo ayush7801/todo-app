@@ -1,11 +1,13 @@
-import Button from './Button';
 import Form from './Form';
 import './Opsarea.css';
-function Opsarea() {
+function Opsarea(props) {
+  function HandleForm(formValue){
+    console.log(formValue);
+    props.formHandler(formValue);
+  }
   return (
     <div className="opsarea">
-      <Form />  
-      <Button>Add Task</Button>
+      <Form formHandler={HandleForm}/>  
     </div>
   );
 }
