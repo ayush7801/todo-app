@@ -5,13 +5,21 @@ function Form(props) {
     const newtitle = document.getElementById('title-input');
     const newdate = document.getElementById('date-input');
     const newtime = document.getElementById('time-input');
-
-    const newTask = {
-      title: newtitle.value,
-      date: new Date(newdate.value),
-      time: newtime.value
-    };
-    props.formHandler(newTask);
+    
+    if(newtitle.value=='' || newdate.value=='' || newtime.value==''){
+      window.alert('Please fill valid input');
+    }
+    else{
+      const newTask = {
+        title: newtitle.value,
+        date: new Date(newdate.value),
+        time: newtime.value
+      };
+      newtitle.value='';
+      newdate.value=undefined;
+      newtime.value=undefined;
+      props.formHandler(newTask);
+    }
   }
   return (
     <form className="form" onSubmit={HandleSubmit}>
