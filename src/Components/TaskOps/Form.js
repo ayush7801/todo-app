@@ -1,15 +1,46 @@
 import './Form.css';
 function Form(props) {
+  let flagT=0,flagD=0,flagTi=0;
   function HandleSubmit(e){
     e.preventDefault();
     const newtitle = document.getElementById('title-input');
     const newdate = document.getElementById('date-input');
     const newtime = document.getElementById('time-input');
     
-    if(newtitle.value=='' || newdate.value=='' || newtime.value==''){
-      window.alert('Please fill valid input');
+    if(newtitle.value==''){
+      newtitle.classList.add('invalid');
+      flagT=1;
+    }else if(flagT){
+      newtitle.classList.remove('invalid');
+      flagT=0;
+    }
+    if( newdate.value=='' ){
+      newdate.classList.add('invalid');
+      flagD=1;
+    }else if(flagD){
+      newdate.classList.remove('invalid');
+      flagD=0;
+    }
+    if(newtime.value==''){
+      newtime.classList.add('invalid');
+      flagTi=1;
+    }else if(flagTi){
+      newtime.classList.remove('invalid');
+      flagTi=0;
     }
     else{
+      if(flagT==1){
+        newtitle.classList.remove('invalid');
+        flagT=0;
+      }
+      if(flagD==1){
+        newdate.classList.remove('invalid');
+        flagD=0;
+      }
+      if(flagTi==1){
+        newtime.classList.remove('invalid');
+        flagTi=0;
+      }
       const newTask = {
         title: newtitle.value,
         date: new Date(newdate.value),
