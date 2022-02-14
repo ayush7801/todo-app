@@ -44,7 +44,8 @@ function Form(props) {
       const newTask = {
         title: newtitle.value,
         date: new Date(newdate.value),
-        time: newtime.value
+        time: newtime.value,
+        taskStatus: 'Planned'
       };
       newtitle.value='';
       newdate.value=undefined;

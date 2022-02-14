@@ -43,3 +43,12 @@
     top: 67%;
     left: 70%;
 }
+.taskComplete{
+    color: rgb(5, 177, 5);
+}
+.taskPlanned{
+    color: rgb(4, 41, 248);
+}
+.taskPending{
+    color: rgb(255, 2, 2);
+}
