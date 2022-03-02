@@ -1,27 +1,31 @@
 import './Form.css';
-function Form(props) {
+import { useContext } from 'react';
+import { TaskContext } from '../../App';
+
+function Form() {
   let flagT=0,flagD=0,flagTi=0;
+  const HandleForm = useContext(TaskContext);
   function HandleSubmit(e){
     e.preventDefault();
     const newtitle = document.getElementById('title-input');
     const newdate = document.getElementById('date-input');
     const newtime = document.getElementById('time-input');
     
-    if(newtitle.value==''){
+    if(newtitle.value===''){
       newtitle.classList.add('invalid');
       flagT=1;
     }else if(flagT){
       newtitle.classList.remove('invalid');
       flagT=0;
     }
-    if( newdate.value=='' ){
+    if( newdate.value==='' ){
       newdate.classList.add('invalid');
       flagD=1;
     }else if(flagD){
       newdate.classList.remove('invalid');
       flagD=0;
     }
-    if(newtime.value==''){
+    if(newtime.value===''){
       newtime.classList.add('invalid');
       flagTi=1;
     }else if(flagTi){
@@ -29,15 +33,15 @@ function Form(props) {
       flagTi=0;
     }
     else{
-      if(flagT==1){
+      if(flagT===1){
         newtitle.classList.remove('invalid');
         flagT=0;
       }
-      if(flagD==1){
+      if(flagD===1){
         newdate.classList.remove('invalid');
         flagD=0;
       }
-      if(flagTi==1){
+      if(flagTi===1){
         newtime.classList.remove('invalid');
         flagTi=0;
       }
@@ -50,7 +54,8 @@ function Form(props) {
       newtitle.value='';
       newdate.value=undefined;
       newtime.value=undefined;
-      props.formHandler(newTask);
+
+      HandleForm(newTask);
     }
   }
   return (

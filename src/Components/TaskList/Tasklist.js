@@ -1,11 +1,15 @@
 import './Tasklist.css';
 import Task from './Task';
+import { createRef, useEffect, useState } from 'react';
 function Tasklist(props){
-    console.log(props.tasks);
+    const [elrefs,setRefs] = useState([]);
+    useEffect(()=>{
+        setRefs( (refs) => Array(props.tasks?.length).fill()?.map((_,i) => refs[i] || createRef()) );
+    }, [props.tasks]);
     return (
         <div className='tasklist'>
-            {props.tasks.map((t,index) => (
-                 <Task task={t} key={index}/>
+            {props?.tasks?.map((t,index) => (
+                <Task task={t} key={index} ref={elrefs[index]} />
             ))}
         </div>
     );

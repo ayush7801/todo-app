@@ -1,13 +1,12 @@
-import { useState } from 'react';
+import { useState, createRef } from 'react';
 import Deadline from './Deadline';
 import './Task.css';
 
-function Task(props){
-    const tagstatus = document.getElementById('taskstatus');
-    const check = document.getElementById('checkbox');
+function Task(props){console.log(props.key);
+    const tagref = createRef();
+    const checkref = createRef();
     let today = new Date();
     let militoday = Date.parse(today);
-
     let target = new Date(`${props.task.date.getFullYear()}/${props.task.date.getMonth()+1}/${props.task.date.getDate()} ${props.task.time}:00`);
     let militarget = target.getTime();
 
@@ -15,44 +14,43 @@ function Task(props){
     
     let diff = militarget - militoday;
     setTimeout(()=>{
-        tagstatus.classList.remove('taskPlanned');
-        if(check.checked){
+        tagref?.current.classList?.remove('taskPlanned');
+        if(checkref?.current.checked){
             setStatus('Completed');
-            if(tagstatus.classList.value.includes("taskPending"));
-                tagstatus.classList.remove('taskPending');
+            if(tagref?.current.classList?.value?.includes("taskPending"));
+                tagref?.current.classList?.remove('taskPending');
 
-            tagstatus.classList.add('taskComplete');
+            tagref?.current.classList.add('taskComplete');
         }else{
             setStatus('Pending');
-            tagstatus.classList.add('taskPending');
+            tagref?.current.classList.add('taskPending');
         }
     },diff);   
 
     function HandleCheck(e){
-        if(e.target.checked){
+        if(checkref.current.checked){
             setStatus('Completed');
-            if(tagstatus.classList.value.includes("taskPlanned"));
-                tagstatus.classList.remove('taskPlanned');
-            if(tagstatus.classList.value.includes("taskPending"));
-                tagstatus.classList.remove('taskPending');
-            tagstatus.classList.add('taskComplete');
+            if(tagref?.current.classList.value.includes("taskPlanned"));
+                tagref?.current.classList.remove('taskPlanned');
+            if(tagref?.current.classList.value.includes("taskPending"));
+                tagref?.current.classList.remove('taskPending');
+            tagref?.current.classList.add('taskComplete');
         }else{
             if(diff<=0){
                 setStatus('Pending');
-                tagstatus.classList.remove('taskCompleted');
-                tagstatus.classList.add('taskPending');
+                tagref?.current.classList.remove('taskCompleted');
+                tagref?.current.classList.add('taskPending');
             }
             else{
                 setStatus('Planned');
-                tagstatus.classList.remove('taskCompleted');
-                tagstatus.classList.add('taskPlanned');
+                tagref?.current.classList.remove('taskCompleted');
+                tagref?.current.classList.add('taskPlanned');
             }
         }
     }
-    //check.addEventListener('change',HandleCheck);
     return (
         <div className='task'>
-            <input type='checkbox' className='checkbox' id='checkbox' onChange={HandleCheck}></input>
+            <input type='checkbox' className='checkbox' ref={checkref} onChange={HandleCheck}></input>
             <div className='title-container'>
                 <Deadline deadline={props.task.date}/>
                 <div className='title'>{props.task.title}</div>
@@ -62,7 +60,7 @@ function Task(props){
                     {/* <img className='edit'>f044</img> */}
                     {/* <img className='delete'>f2ed</img> */}
                 </div>
-                <div className='tag taskPlanned' id='taskstatus'>{status}</div>
+                <div className='tag taskPlanned' ref={tagref}>{status}</div>
             </div>
         </div>
     );
