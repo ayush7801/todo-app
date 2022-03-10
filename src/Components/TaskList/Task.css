@@ -1,48 +1,78 @@
-.task{
-    background-color: rgb(112, 110, 110);
-    color: #fff;
-    position: relative;
+.taskdiv{
     padding: 10px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-    box-shadow: 0 0 5px rgb(160, 158, 158);
-    border-radius: 20px;
     width: 93%;
-    height: 7rem;
-    margin-bottom: .3rem;
-    box-shadow: 0 0 10px rgb(184, 181, 181);
-}
-.deadline{
-    position: absolute;
-    top: 10%;
-    left: 5%;
-    font-size: 0.8rem;
-}
-.checkbox{
-    position: absolute;
-    top: 45%;
-    left: 5%;
-    cursor: pointer;
-}
-.title{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.4rem;
-}
-.tags{
+    height: 8rem;
+    margin-bottom: 1rem;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgb(184, 181, 181);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    flex-wrap: wrap;
 }
-.tag{
-    position: absolute;
-    top: 67%;
-    left: 70%;
+.task{
+    background-color: #fff;
+    color: #000;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 93%; 
+    height: 8rem;
 }
+.timeandops{
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+}
+
+.deadline{
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.buttons{
+    display: flex;
+    width: 15%;
+    justify-content: space-between;
+}
+#edit{
+    height: 1.5rem;
+    margin-right: 10%;
+    cursor: pointer;
+}
+#delete{
+    height: 1.6rem;
+    cursor: pointer;
+}
+
+.midbox{
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+    align-items: center;
+}
+.titlebox{
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+}
+.checkbox{
+    cursor: pointer;
+}
+.title{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.4rem;
+}
+.tags{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 95%;
+}
+
 .taskComplete{
     color: rgb(5, 177, 5);
 }

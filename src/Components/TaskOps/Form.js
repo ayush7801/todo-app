@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { TaskContext } from '../../App';
 
 function Form() {
-  let flagT=0,flagD=0,flagTi=0;
+  let flagT=0,flagD=0,flagTi=0,i=0;
   const HandleForm = useContext(TaskContext);
   function HandleSubmit(e){
     e.preventDefault();
@@ -46,6 +46,7 @@ function Form() {
         flagTi=0;
       }
       const newTask = {
+        index: i,
         title: newtitle.value,
         date: new Date(newdate.value),
         time: newtime.value,
@@ -54,7 +55,7 @@ function Form() {
       newtitle.value='';
       newdate.value=undefined;
       newtime.value=undefined;
-
+      i++;
       HandleForm(newTask);
     }
   }
